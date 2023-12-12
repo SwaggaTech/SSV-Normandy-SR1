@@ -1,0 +1,50 @@
+import sys
+import math
+out_of_calc = False
+calc_count = 1
+
+def calc(o, a, b):
+    if o == "+":
+        return a+b
+    elif o == "-":
+        return a-b    
+    elif o == "/":
+        return a/b
+    elif o == "*":
+        return a*b
+    else:
+        return 'Invalid Entry'
+  
+n1 = float(input('Enter number: '))
+op = input('enter an operator')
+n2 = float(input('Enter number: '))
+r = int(calc(op, n1, n2))
+calc_count += 1
+
+while not out_of_calc and calc_count > 1:
+    result = int(r)
+
+    if result > 0 or result < 0 and calc_count > 1:
+        print ("next calculation\n last result: " + str(r))
+        op1 = input ("choose an OPERATION")
+        n3 = float(input("enter a 2nd NUMBER"))
+        r = int(calc(op1, result, n3))
+            
+    elif result == 0 or r == int(0):
+        print("New Calculation: ")
+        nn1 = float(input('Enter number: '))
+        nop = input('enter an operator')
+        nn2 = float(input('Enter number: '))
+        print (calc(nop, nn1, nn2))
+    
+    else:
+        out_of_calc = True
+        print('End of program')
+        sys.exit
+
+
+    
+
+# Cstowell@outlook.com
+
+
